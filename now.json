@@ -1,0 +1,12 @@
+{
+	"version": 2,
+	"name": "planes-task-list-probot",
+	"alias": "github-task-list.planes.studio",
+	"env": {
+		"SECRET": "@planes-github-task-list-secret",
+		"GITHUB_TOKEN": "@planes-github-task-list-token",
+		"APP_ID": "@planes-github-task-list-app-id",
+		"PRIVATE_KEY": "@planes-github-task-list-pk"
+	},
+	"builds": [ { "src": "index.js", "use": "@now/node" } ]
+}

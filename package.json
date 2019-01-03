@@ -1,0 +1,25 @@
+{
+	"name": "planes-bot",
+	"version": "1.0.0",
+	"description": "Planes Probot",
+	"author": "Planes <henry@planes.studio>",
+	"license": "MIT",
+	"repository": "https://github.com/teamplanes/planes-bot.git",
+	"scripts": {
+		"dev": "micro-dev"
+	},
+	"dependencies": {
+		"probot": "^7.4.0"
+	},
+	"devDependencies": {
+		"eslint": "^5.11.0",
+		"eslint-config-prettier": "^3.3.0",
+		"eslint-config-standard": "^12.0.0",
+		"eslint-plugin-import": "^2.14.0",
+		"eslint-plugin-node": "^8.0.0",
+		"eslint-plugin-promise": "^4.0.1",
+		"eslint-plugin-standard": "^4.0.0",
+		"micro": "^9.3.3",
+		"micro-dev": "^3.0.0"
+	}
+}
