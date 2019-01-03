@@ -23,21 +23,21 @@ const appFn = (app) => {
 
 			context.log(`Updating PR "${title}" (${context.payload.pull_request.html_url}): ${status}`);
 
-			await context.github.repos.createStatus({
+			const repo = {
 				owner: context.payload.pull_request.head.repo.owner.login,
 				repo: context.payload.pull_request.head.repo.name,
-				sha: context.payload.pull_request.head.sha,
+				sha: context.payload.pull_request.head.sha
+			};
+
+			await context.github.repos.createStatus({
+				...repo,
 				state: status,
 				target_url: context.payload.pull_request.url,
 				description: status ? 'task list not completed yet' : 'task list complete',
 				context: 'Planes Task List Checker'
 			});
 
-			const statuses = (await context.github.repos.getCombinedStatusForRef({
-				owner: context.payload.pull_request.head.repo.owner.login,
-				repo: context.payload.pull_request.head.repo.name,
-				ref: context.payload.pull_request.head.sha
-			})).data.statuses;
+			const statuses = (await context.github.repos.getCombinedStatusForRef(repo)).data.statuses;
 
 			if (statuses) {
 				const nowStatus = statuses.find((status) => status.context === 'now');
@@ -50,7 +50,6 @@ const appFn = (app) => {
 };
 
 module.exports = (req, res) => {
-	console.log('Got request');
 	const probot = loadProbot(appFn);
 	return probot.server(req, res);
 };
