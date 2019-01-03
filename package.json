@@ -4,7 +4,7 @@
 	"description": "Planes Probot",
 	"author": "Planes <henry@planes.studio>",
 	"license": "MIT",
-	"repository": "https://github.com/teamplanes/planes-bot.git",
+	"repository": "https://github.com/teamplanes/pr-bot.git",
 	"scripts": {
 		"dev": "micro-dev"
 	},
